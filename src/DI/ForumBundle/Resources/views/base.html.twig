@@ -1,0 +1,19 @@
+{% extends "::base.html.twig" %}
+
+{% block title %} Forum - {% endblock %}
+
+{% block body %}
+    <h1>Forum</h1>
+
+    {% for label, messages in app.flashes(['success', 'info']) %}
+        {% for message in messages %}
+            <div class="alert alert-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+
+    {% block body_forum %}
+    {% endblock %}
+
+{% endblock %}

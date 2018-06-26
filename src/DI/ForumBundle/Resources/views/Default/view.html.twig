@@ -1,0 +1,29 @@
+{% extends "DIForumBundle::base.html.twig" %}
+
+{% block title %}{{ parent() }}Voir sujet{% endblock %}
+
+{% block body_forum %}
+    {{ subject.title }}
+    <br>
+    {{ subject.content }}
+    <br>
+    {{ subject.author }}
+    <br>
+    {{ subject.date|date("d/m/Y") }}
+    <br>
+    <hr>
+{% for answer in answers_list %}
+    <div>
+        {{ answer.author }}
+        <br>
+        {{ answer.date|date('d/m/Y') }}
+        <br>
+        {{ answer.content }}
+    </div>
+    <hr>
+    {% endfor %}
+
+    <h2>Ajouter un commentaire</h2>
+    {{ form(answer_form) }}
+
+{% endblock %}
